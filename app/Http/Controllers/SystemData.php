@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class SystemData extends Controller
 {
-    //
+    // adilson da costa
     public function systemData(){
         $qtyPermit=DB::table('permits')->count();
         $qtyPermitsNotVerified=DB::table('permits')->where('permit_status','Not Verified')->count();
