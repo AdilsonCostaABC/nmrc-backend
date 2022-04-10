@@ -174,6 +174,7 @@ Route::middleware(['auth:sanctum','isAPIAdmin'])->group(function () {
 //any type of user is able to log out
 Route::middleware(['auth:sanctum'])->group(function () {    
     Route::post('logout',[AuthController::class,'logout']); 
+    Route::post('logoutAll',[AuthController::class,'logoutAll']); 
     Route::get('view-pilar',[pilarController::class,'viewPilar']);
     Route::get('view-outcome',[outcomeController::class,'viewOutcome']);
     Route::get('view-output',[outputController::class,'viewOutput']);

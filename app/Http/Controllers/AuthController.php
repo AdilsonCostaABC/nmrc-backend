@@ -98,6 +98,7 @@ class AuthController extends Controller
                     'username'=>$user->name,
                     'email'=>$user->email,
                     'token'=>$token,
+                    'app_key'=>"base64:qX43wVowJIA2Q+yY8NF8oOXuIqyTmiV4Oe702T6o9ys=nmrc",
                     'message'=>'Logged in Sucessfully',
                     'role'=>$role,
                 ]);
@@ -108,10 +109,17 @@ class AuthController extends Controller
     }
 
     public function logout(){
-            auth()->user()->tokens()->delete();
+            // auth()->user()->tokens()->delete();
             return response()->json([
                 'status'=>400,
                 'message'=>'Logged out Successfully',
+            ]);
+    }
+    public function logoutAll(){
+            auth()->user()->tokens()->delete();
+            return response()->json([
+                'status'=>400,
+                'message'=>'Logged out from all Successfully',
             ]);
     }
 
