@@ -25,6 +25,7 @@ class scheduleController extends Controller
             # code...
             $schedule= new schedule;
             $schedule->name=$request->input('name');
+            $schedule->description="Description";
             $schedule->updated_by=$request->input('updated_by');
             $schedule->save();
     
