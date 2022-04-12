@@ -49,6 +49,9 @@ class permitController extends Controller
             $permit->purpose_use=$request->input('purpose_use');
             //automatic data
             $permit->permit_status="Not Verified";
+            $permit->veri_reject_reason="";
+            $permit->cancel_reason="";
+            $permit->approve_reject_reason="";
             $now = Carbon::now();
             $permit->updated_datetime=$now;
             $permit->updated_by=$request->input('updated_by');
