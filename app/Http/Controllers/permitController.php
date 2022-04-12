@@ -39,7 +39,7 @@ class permitController extends Controller
             // $permit->check_digit=$request->input('check_digit');
             // $permit->permit_no=$request->input('permit_no');
             $permit->permit_date=$request->input('permit_date');
-            $permit->check_digit=111;
+            $permit->check_digit=1111;
             $permit->comp_id=$request->input('comp_id');
             $permit->sup_id=$request->input('sup_id');
             $permit->pharma_id=$request->input('pharma_id');
