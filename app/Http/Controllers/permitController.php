@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\permit;
 use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class permitController extends Controller
 {
@@ -38,6 +39,7 @@ class permitController extends Controller
             // $permit->check_digit=$request->input('check_digit');
             // $permit->permit_no=$request->input('permit_no');
             $permit->permit_date=$request->input('permit_date');
+            $permit->check_digit=111;
             $permit->comp_id=$request->input('comp_id');
             $permit->sup_id=$request->input('sup_id');
             $permit->pharma_id=$request->input('pharma_id');
@@ -51,13 +53,12 @@ class permitController extends Controller
             $permit->updated_datetime=$now;
             $permit->updated_by=$request->input('updated_by');
             $permit->orig_user=$request->input('updated_by');
+            $countPermit=DB::table('permits')->count();
+            $permit->check_digit=1375+$countPermit;
+            $permit->permit_no=1444+$countPermit;
+
             $permit->save();
             
-                 $countid=$permit->id;
-                $permit=permit::find($countid);
-                $permit->check_digit=1375+$countid;
-                $permit->permit_no=1444+$countid;
-                $permit->save();
             //updateable data
             // 'veri_reject_reason',
             // 'cancel_reason',
